@@ -9,9 +9,10 @@ from aqlalchemychemy.ext.declarative import declarative_base
 
 Base = declarative_base() #base class that other data models will inherit 
 
-class User(Base):
-    __tablename__='users'
-    
+class User(Base): #represents users of the system 
+    __tablename__='users'#naming of the database table 
+    #each colunm type can hold a type of data
     id=Column(Integer, primary_key=True)
     username=Column(String, unique=True, nullable=False)
+    password = Column(String, nullable=False)
     
