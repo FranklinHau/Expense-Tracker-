@@ -6,3 +6,5 @@ from sqlalchemy import create_engine, Column, Integer, String, Float, ForeignKey
 from sqlalchemychemy.orm import sessionmaker, relationship
 # used to create a new base class for declarative models.
 from aqlalchemychemy.ext.declarative import declarative_base
+
+Base = declarative_base()
