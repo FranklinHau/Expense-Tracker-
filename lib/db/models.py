@@ -31,3 +31,8 @@ class Expense(Base): #represents the expenses of the system
     # one user can have many expenses, but each expense belongs to one user.
 
     user=relationship('User', back_populates='expenses') # establishes a two way relationship between User and Expense
+
+Base.metadata.create_all(engine)
+
+Session=sessionmaker(bind=engine)
+session=Session()
