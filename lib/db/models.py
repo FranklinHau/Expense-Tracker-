@@ -18,5 +18,13 @@ class User(Base): #represents users of the system
     #establishes a two way relationship between User and Expense 
     expenses=relationship('Expense', back_populates='user')
 
+class Expense(Base):
+    __tablename__='expenses'
+    
+    id=Column(Integer, primary_key=True)
+    category =Column(String, nullable=False)
+    amount=Column(Float, nullable=False)
+    date=Column(String, nullable=False)
+    user_id=Column(Integer, ForeignKey('users.id'))
 
     
