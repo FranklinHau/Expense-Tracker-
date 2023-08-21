@@ -7,6 +7,8 @@ from sqlalchemychemy.orm import sessionmaker, relationship
 # used to create a new base class for declarative models.
 from aqlalchemychemy.ext.declarative import declarative_base
 
+engine=create_engine('sqlite:///expenses.db')#connection to SQLite
+
 Base = declarative_base() #base class that other data models will inherit 
 
 class User(Base): #represents users of the system 
@@ -18,13 +20,14 @@ class User(Base): #represents users of the system
     #establishes a two way relationship between User and Expense 
     expenses=relationship('Expense', back_populates='user')
 
-class Expense(Base):
+class Expense(Base): #represents the expenses of the system 
     __tablename__='expenses'
     
     id=Column(Integer, primary_key=True)
     category =Column(String, nullable=False)
     amount=Column(Float, nullable=False)
     date=Column(String, nullable=False)
-    user_id=Column(Integer, ForeignKey('users.id'))
+    user_id=Column(Integer, ForeignKey('users.id')) # many-to-one relationship between expense & user 
+    # one user can have many expenses, but each expense belongs to one user.
 
-    
+    user=relationship('User', back_populates='expenses') # establishes a two way relationship between User and Expense
