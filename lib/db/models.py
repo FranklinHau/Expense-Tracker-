@@ -7,4 +7,10 @@ from sqlalchemychemy.orm import sessionmaker, relationship
 # used to create a new base class for declarative models.
 from aqlalchemychemy.ext.declarative import declarative_base
 
-Base = declarative_base()
+Base = declarative_base() #base class that other data models will inherit 
+
+class User(Base):
+    __tablename__='users'
+    
+    id=Column(Integer, primary_key=True)
+    
