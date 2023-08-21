@@ -15,4 +15,8 @@ class User(Base): #represents users of the system
     id=Column(Integer, primary_key=True)
     username=Column(String, unique=True, nullable=False)
     password = Column(String, nullable=False)
+
+    expenses=relationship('Expense', back_populates='user')
+
+    
     
