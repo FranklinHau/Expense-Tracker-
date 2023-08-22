@@ -27,16 +27,25 @@ def main():
             session.add(user)
             session.commit()# writes this change to the actual database
             print('User registered!')
+
         elif choice == '2': # Login code 
+            # prompts user to enter username and password 
+            # values are stored in username and password variables  
             username = input('Enter your username: ')
             password = input('Enter your password: ') 
 
+            # checks of there's a user with the provided username in the database 
+            # session.query(User) tells SQLAlchemy to prepare a query targeting the User model/table.
+            # .filter_by(username=username) filters the results to only those rows where the username matches the provided input.
+            #.first() fetches the first result, if there's any. If there's no matching user, it will return None.
             user = session.query(User).filter_by(username=username).first()
 
+            #checks if the user and password was found
             if user and check_password(password, user.password):
                 print('Logged in!')
             else:
                 print('Invalid credentials.')
+                
         elif choice == '3':
             exit()
 
