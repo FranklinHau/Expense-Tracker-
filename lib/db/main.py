@@ -22,6 +22,15 @@ def register():
     session.commit()
 
 # Login function 
+    username = input('Enter your username: ')
+    password = input('Enter your password: ')
+    user = session.query(User).filter_by(username=username).first()
+    if user and check_password(password, user.password):
+        print('Logged in!')
+    else:
+        print('Invalid credentials.')
+
+# Link functions to the menu options 
 
 
 # starts CLI interface
