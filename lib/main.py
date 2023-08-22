@@ -10,4 +10,13 @@ def main():
         print('3. Exit')
         choice = input('Enter your choice: ')# user will type in number corresponding to their
                                             # choice and hit enter 
+        
+        if choice == '1': # Registration code 
+            pass
+        elif choice == '2': # Login code 
+            pass 
+        elif choice == '3':
+            exit()
 
+if __name__ == '__main__':
+    main()
