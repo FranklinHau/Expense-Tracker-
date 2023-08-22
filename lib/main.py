@@ -33,7 +33,8 @@ def main():
 
             user = session.query(User).filter_by(username=username).first()
 
-            
+            if user and check_password(password, user.password):
+                print('Logged in!')
         elif choice == '3':
             exit()
 
