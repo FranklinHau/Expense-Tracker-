@@ -30,6 +30,10 @@ def main():
         elif choice == '2': # Login code 
             username = input('Enter your username: ')
             password = input('Enter your password: ') 
+
+            user = session.query(User).filter_by(username=username).first()
+
+            
         elif choice == '3':
             exit()
 
