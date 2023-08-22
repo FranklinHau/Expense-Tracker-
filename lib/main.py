@@ -12,7 +12,12 @@ def main():
                                             # choice and hit enter 
         
         if choice == '1': # Registration code 
-            pass
+            username = input('Enter a username: ')
+            password = input('Enter a password: ')
+            
+            if existing_user:
+                print('Username already taken. Please choose another one.')
+                continue
         elif choice == '2': # Login code 
             pass 
         elif choice == '3':
