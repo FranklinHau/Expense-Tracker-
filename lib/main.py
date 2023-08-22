@@ -15,9 +15,18 @@ def main():
             username = input('Enter a username: ')
             password = input('Enter a password: ')
             
+            #If a user with that username exists, it will prompt the user to choose another one.
+            existing_user = session.query(User).filter_by(username=username).first()
             if existing_user:
                 print('Username already taken. Please choose another one.')
                 continue
+            # Instead of storing the raw password, it is hash with the hash_password function. 
+            hashed_password = hash_password(password)
+            user = User(username=username, password=hashed_password)
+            # After hashing the password and creating the new User object, I added this object to the session
+            session.add(user)
+            session.commit()# writes this change to the actual database
+            print('User registered!')
         elif choice == '2': # Login code 
             pass 
         elif choice == '3':
