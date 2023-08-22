@@ -8,7 +8,7 @@ MENU_OPTIONS = [
     {'id': '3', 'label': 'Exit', 'function': exit}
 ]
 
-
+#Register function 
 
 #starts CLI interface
 def main():
