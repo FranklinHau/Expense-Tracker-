@@ -8,9 +8,23 @@ MENU_OPTIONS = [
     {'id': '3', 'label': 'Exit', 'function': exit}
 ]
 
-#Register function 
+# Register function 
+def register():
+    username = input('Enter a username: ')
+    password = input('Enter a password: ')
+    existing_user = session.query(User).filter_by(username=username).first()
+    if existing_user:
+        print('Username already taken. PLease choose another one. ')
+        return 
+    hashed_password = hash_password(password)
+    user = User(username=username, password=hashed_password)
+    session.add(user)
+    session.commit()
 
-#starts CLI interface
+# Login function 
+
+
+# starts CLI interface
 def main():
     while True:# it will keep presenting the user with the options unless they choose exit
         #printing choices for the user
