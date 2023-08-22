@@ -35,6 +35,8 @@ def main():
 
             if user and check_password(password, user.password):
                 print('Logged in!')
+            else:
+                print('Invalid credentials.')
         elif choice == '3':
             exit()
 
