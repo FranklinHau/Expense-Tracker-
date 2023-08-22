@@ -31,12 +31,17 @@ def register():
         print('Invalid credentials.')
 
 # Link functions to the menu options 
+for option in MENU_OPTIONS:
+    if option['label'] == 'Register':
+        option['function'] = register 
+    elif option['label'] == 'Login':
+        option['function'] = login
 
 
 # starts CLI interface
 def main():
-    while True:# it will keep presenting the user with the options unless they choose exit
-        #printing choices for the user
+    while True:
+        
         print('1. Register')# the user will be able to see these options 
         print('2. Login')   # user will be able to choose what they want to do
         print('3. Exit')
