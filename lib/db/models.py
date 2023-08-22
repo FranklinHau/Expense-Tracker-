@@ -5,7 +5,7 @@ from sqlalchemy import create_engine, Column, Integer, String, Float, ForeignKey
 # relationships between tables (like foreign keys).
 from sqlalchemy.orm import sessionmaker, relationship
 # used to create a new base class for declarative models.
-from aqlalchemychemy.ext.declarative import declarative_base
+from aqlalchemy.ext.declarative import declarative_base
 
 engine=create_engine('sqlite:///expenses.db')#connection to SQLite
 
