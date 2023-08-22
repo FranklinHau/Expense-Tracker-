@@ -28,7 +28,8 @@ def main():
             session.commit()# writes this change to the actual database
             print('User registered!')
         elif choice == '2': # Login code 
-            pass 
+            username = input('Enter your username: ')
+            password = input('Enter your password: ') 
         elif choice == '3':
             exit()
 
