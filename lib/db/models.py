@@ -34,8 +34,8 @@ class Expense(Base): # represents the expenses of the system
 
     user=relationship('User', back_populates='expenses') # establishes a two way relationship between User and Expense
 
-# looks at all subclasses of Base and creates tables in the database for them. 
-Base.metadata.create_all(engine)# if table already exist, it won't be created 
+# instructing SQLAlchemy to create the tables in the database if they don't exist. 
+Base.metadata.create_all(engine)
 
 Session=sessionmaker(bind=engine) # creates new database session objects. session is bound to SQLite
 session=Session() # instance of the session to interact with the database 
