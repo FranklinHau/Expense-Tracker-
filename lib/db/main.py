@@ -42,9 +42,15 @@ for option in MENU_OPTIONS:
 def main():
     while True:
         for option in MENU_OPTIONS:
-        
-        
+            print(f'{option["id"]}. {option["label"]}')
+        choice = input('Enter your choice: ')
+
+        # using the function associated with the choice from the MENU_OPTIONS 
+        selected_option = next((opt for opt in MENU_OPTIONS if opt['id'] == choice), None)
+        if selected_option and selected_option['function']:
+            selected_option['function']()
+        else:
+            print('Invalid option. Please choose again.')
        
-            
 if __name__ == '__main__':
     main()
