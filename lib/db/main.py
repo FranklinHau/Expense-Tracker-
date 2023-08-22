@@ -1,11 +1,14 @@
 from models import session, User, Expense 
 from utilities import hash_password, check_password
 
+# Menu options as a list of dicts 
 MENU_OPTIONS = [
     {'id': '1', 'label': 'Register', 'function': None},
     {'id': '2', 'label': 'Login', 'function': None},
     {'id': '3', 'label': 'Exit', 'function': exit}
 ]
+
+
 
 #starts CLI interface
 def main():
