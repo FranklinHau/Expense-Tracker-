@@ -1,6 +1,7 @@
 #store passwords and later verify if an input password matches the stored hashed version.
 import bcrypt
 
+
 def hash_password(password):#function to create a hashed version of the provided password.
     salt = bcrypt.gensalt()# generates a new random salt. passwords will be different due to the unique salts
     #This hashes the encoded password using the generated salt
