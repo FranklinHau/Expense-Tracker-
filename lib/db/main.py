@@ -1,4 +1,4 @@
-from models import session, User, Expense 
+from models import session, User, Expense
 from utilities import hash_password, check_password
 
 # Menu options as a list of dicts 
