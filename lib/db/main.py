@@ -30,13 +30,18 @@ def register():
     # commit the session to persist the user data into the database 
     session.commit()
 
-# Login function 
+# Function to handle user login 
+def login():
+    # gather user input for username and password  
     username = input('Enter your username: ')
     password = input('Enter your password: ')
+    # check if entered username exists in the database
     user = session.query(User).filter_by(username=username).first()
+    # if user exists and entered password matches stored hashed password, login is successful
     if user and check_password(password, user.password):
         print('Logged in!')
     else:
+        # if credentials don't match, inform the user 
         print('Invalid credentials.')
 
 # Link functions to the menu options 
