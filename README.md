@@ -50,9 +50,9 @@ This application is a simple Command Line Interface (CLI) tool designed for user
 
 * Upon launching the application, the user is presented with the main menu with the following options:
 
-    1. Register
-    2. Login
-    3. Exit
+1. Register
+2. Login
+3. Exit
 
 * Register: Users can choose a unique username and password to register.
 
