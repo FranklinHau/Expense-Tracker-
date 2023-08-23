@@ -78,5 +78,31 @@ This application is a simple Command Line Interface (CLI) tool designed for user
 ## Contribution
 Contributions are welcome! Please fork the repository and open a pull request with your changes, or open an issue for feedback and suggestions.
 
+## Resources
+
+Alembic documentation » Operation Reference
+https://alembic.sqlalchemy.org/en/latest/ops.html
+
+The Python SQL Toolkit and Object Relational Mapper
+https://www.sqlalchemy.org/
+
+stack overflow 
+https://stackoverflow.com/questions
+
+Flatiron School classes documentation 
+https://flatironschool.com
+
+w3 Schools
+https://www.w3schools.com
+
+*** 
+
+## License 
+MIT License
+
+
+
+
+
 
   
