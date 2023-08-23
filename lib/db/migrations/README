@@ -2,4 +2,11 @@
 
 ## This application is a simple Command Line Interface (CLI) tool designed for user registration, login, and potentially managing expenses. It uses SQLite as its backend database and implements bcrypt for secure password hashing.
 
-###
+## Table of Contents 
+*Features
+*Prerequisites
+*Setup and Installation
+*Usage
+*Security Measures
+*Future Enhancements
+*Contribution
