@@ -30,18 +30,19 @@ This application is a simple Command Line Interface (CLI) tool designed for user
 
 ## Setup and Installation
 
-1. Ensure Python 3. is installed. You can verify using:
-   run: python --version
+1. Ensure Python 3.8 is installed. You can verify using:
+   * run: python --version
 2. Clone the repository:
-    Fork repository
-    run: git clone [SSH repository_link]
+    *Fork repository
+    * run: git clone [SSH repository_link]
 3. Navigate to the project directory and install the required packages:
-    cd [project_directory]
-    pip install -r requirements.txt
+    * cd [project_directory]
+    * pip install -r requirements.txt
 4. run pipenv install
-5. get to your virtual: run pipenv shell 
+5. get to your virtual: 
+    * run pipenv shell 
 5. Run the application:
-    python main.py
+    * python main.py
 
 ***
 
@@ -49,9 +50,9 @@ This application is a simple Command Line Interface (CLI) tool designed for user
 
 * Upon launching the application, the user is presented with the main menu with the following options:
 
-1. Register
-2. Login
-3. Exit
+    1. Register
+    2. Login
+    3. Exit
 
 * Register: Users can choose a unique username and password to register.
 
