@@ -52,19 +52,23 @@ for option in MENU_OPTIONS:
         option['function'] = login
 
 
-# starts CLI interface
+# function that runs the CLI interface 
 def main():
     while True:
+        # displaying th e menu options to the user 
         for option in MENU_OPTIONS:
             print(f'{option["id"]}. {option["label"]}')
+        # take user's choice as input 
         choice = input('Enter your choice: ')
 
-        # using the function associated with the choice from the MENU_OPTIONS 
+        # fetch the selected option from MENU_OPTIONS based on user input 
         selected_option = next((opt for opt in MENU_OPTIONS if opt['id'] == choice), None)
+        # if invalid option is selected and has an associated function, execute it 
         if selected_option and selected_option['function']:
             selected_option['function']()
         else:
+            # inform the user if an invalid option is chosen
             print('Invalid option. Please choose again.')
-       
+# ensuring that the main function is called only if this script is run directly and not imported  
 if __name__ == '__main__':
     main()
