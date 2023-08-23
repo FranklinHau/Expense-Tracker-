@@ -4,6 +4,7 @@
 
 This application is a simple Command Line Interface (CLI) tool designed for user registration, login, and potentially managing expenses. It uses SQLite as its backend database and implements bcrypt for secure password hashing.
 
+`````
 Expenses-Management-CLI-Application/
 │
 ├── lib/
@@ -18,6 +19,7 @@ Expenses-Management-CLI-Application/
 ├── Pipfile
 ├── Pipfile.lock
 └── README.md
+`````
 
 ***
 
