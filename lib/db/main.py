@@ -44,7 +44,7 @@ def login():
         # if credentials don't match, inform the user 
         print('Invalid credentials.')
 
-# Link functions to the menu options 
+# Link functions to their respective options in MENU_OPTIONS
 for option in MENU_OPTIONS:
     if option['label'] == 'Register':
         option['function'] = register 
