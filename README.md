@@ -1,92 +1,53 @@
-# Phase 3 CLI Project Template
+# Expenses Management CLI Application
 
-## Learning Goals
+## Phase 3 Project
 
-- Discuss the basic directory structure of a CLI.
-- Outline the first steps in building a CLI.
-
-***
-
-## Introduction
-
-You now have a basic idea of what constitutes a CLI, but you (understandably!)
-likely don't have the best idea of where to start. Fork and clone this lesson
-for a template for your CLI. Take a look at the directory structure before we
-begin:
-
-```console
-.
-├── Pipfile
-├── Pipfile.lock
-├── README.md
-└── lib
-    ├── cli.py
-    ├── db
-    │   ├── models.py
-    │   └── seed.py
-    ├── debug.py
-    └── helpers.py
-```
-
-> **Note: You may already know some or all of the material covered in this
-> lesson. We hope that having it all in one place will help you in designing
-> and developing your project, regardless of where you're starting off.**
+This application is a simple Command Line Interface (CLI) tool designed for user registration, login, and potentially managing expenses. It uses SQLite as its backend database and implements bcrypt for secure password hashing.
 
 ***
 
-## Where Do I Start?
+## Table of Contents
 
-This project will likely be one of the biggest projects you've undertaken so
-far. Your first task should be creating a Git repository to keep track of your
-work and roll back any undesired changes.
+* Features
+* Prerequisites
+* Setup and Installation
+* Usage
+* Security Measures
+* Future Enhancements
+* Contribution
 
-### Removing Existing Git Configuration
+## Features 
 
-If you're using this template, start off by removing the existing metadata for
-Github and Canvas. Run the following command to carry this out:
+1. User Registration: Users can register with a unique username and password.
+2. User Login: Registered users can login with their credentials.
+3. Menu Driven: Easy to navigate through various functionalities using a menu.
 
-```console
-$ rm -rf .git .github .canvas
-```
+## Prerequisites
 
-The `rm` command removes files from your computer's memory. The `-r` flag tells
-the console to remove _recursively_, which allows the command to remove
-directories and the files within them. `-f` removes them permanently.
+* Python 3.x
+* SQLAlchemy
+* bcrypt library
 
-`.git` contains this directory's configuration to track changes and push to
-Github (you want to track and push _your own_ changes instead), and `.github`
-and `.canvas` contain the metadata to create a Canvas page from your Git repo.
-You don't have the permissions to edit our Canvas course, so it's not worth
-keeping them around.
+## Setup and Installation
 
-### Creating Your Own Git Repo
+1. Ensure Python 3. is installed. You can verify using:
+   run: python --version
+2. Clone the repository:
+    Fork repository
+    run: git clone [SSH repository_link]
+3. Navigate to the project directory and install the required packages:
+    cd [project_directory]
+    pip install -r requirements.txt
+4. Run the application:
+    python main.py
 
-First things first- rename this directory! Once you have an idea for a name,
-move one level up with `cd ..` and run `mv python-p3-cli-project-template
-<new-directory-name>` to change its name.
 
-> **Note: `mv` actually stands for "move", but your computer interprets this
-> rename as a move from a directory with the old name to a directory with
-> a new name.**
 
-`cd` back into your new directory and run `git init` to create a local git
-repository. Add all of your local files to version control with `git add --all`,
-then commit them with `git commit -m'initial commit'`. (You can change the
-message here- this one is just a common choice.)
 
-Navigate to [GitHub](https://github.com). In the upper-right corner of the page,
-click on the "+" dropdown menu, then select "New repository". Enter the name of
-your local repo, choose whether you would like it to be public or private, make
-sure "Initialize this repository with a README" is unchecked (you already have
-one), then click "Create repository".
 
-Head back to the command line and enter `git remote add <project name> <github
-url>`. This will map the remote repository to your local repository. Finally,
-push your first commit with `git push -u origin main`.
 
-Your project is now version-controlled locally and online. This will allow you
-to create different versions of your project and pick up your work on a
-different machine if the need arises.
+
+
 
 ***
 
