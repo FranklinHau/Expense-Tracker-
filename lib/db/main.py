@@ -2,23 +2,32 @@ from models import session, User, Expense
 from utilities import hash_password, check_password
 
 # Menu options as a list of dicts 
+# each dict has an 'id', 'label', and a 'function
+# id = user input, label = description of the option, function = execute for the option
 MENU_OPTIONS = [
     {'id': '1', 'label': 'Register', 'function': None},
     {'id': '2', 'label': 'Login', 'function': None},
     {'id': '3', 'label': 'Exit', 'function': exit}
 ]
 
-# Register function 
+# Function to handle user registration 
 def register():
+    # gather user input for the username and password
     username = input('Enter a username: ')
     password = input('Enter a password: ')
+    # checks if the existing username already exist in the database 
     existing_user = session.query(User).filter_by(username=username).first()
     if existing_user:
+        # if the username is already taken, inform the user and exit the function  
         print('Username already taken. PLease choose another one. ')
-        return 
+        return
+    # if username is unique, hash the password for security 
     hashed_password = hash_password(password)
+    # creating a new User Instance with the given username and hashed password 
     user = User(username=username, password=hashed_password)
+    # add the new user to the SQLAlchemy session for DB insertion 
     session.add(user)
+    # commit the session to persist the user data into the database 
     session.commit()
 
 # Login function 
