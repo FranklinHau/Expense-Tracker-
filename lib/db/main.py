@@ -11,7 +11,8 @@ MENU_OPTIONS = [
     {'id': '1', 'label': 'Register', 'function': None},
     {'id': '2', 'label': 'Login', 'function': None},
     {'id': '3', 'label': 'Add Expense', 'function': None},
-    {'id': '4', 'label': "Exit", 'function': exit}
+    {'id': '4', 'label': "Exit", 'function': exit},
+    {'id': '5', 'label': "List Expenses", 'function': list_expenses}, 
 ]
 
 # Function to handle user registration 
@@ -65,6 +66,8 @@ for option in MENU_OPTIONS:
         option['function'] = login
     elif option['label'] == 'Add Expense': 
         option['function'] = add_expense_logged_in
+    elif option['label'] == 'List Expenses':
+        option['function'] = list_expenses
 
 # function that allows a user to add their expenses 
 def add_expense(user_id): 
