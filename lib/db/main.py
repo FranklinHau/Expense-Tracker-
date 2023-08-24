@@ -66,6 +66,15 @@ def add_expense(user_id):
     amount = float(input('Enter the amount of the expense: '))
     date_input = input('Enter the date of the expense format YYYY-MM-DD: ')
     date_obj = datetime.strptime(date_input, '%Y-%m-%d').date()
+    
+    # if user uses a non-numeric amount
+    while True: 
+        try: 
+            amount = float(input('Enter the amount of the expense: '))
+            break 
+        except ValueError:
+            print('Please enter a valid number for the amount.')
+     
 
     # Expense instance 
     expense = Expense(category=category, amount=amount, date=date_obj, user_id=user_id)
