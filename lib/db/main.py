@@ -57,6 +57,9 @@ def add_expense(user_id):
     category = input("Enter the category of the expense (e.g, Food, Rent, Entertainment): ")
     amount = float(input('Enter the amount of the expense: '))
     date_input = input('Enter the date of the expense format YYYY-MM-DD: ')
+    date_obj = datetime.strptime(date_input, '%Y-%m-%d').date()
+
+    
 # function that runs the CLI interface 
 def main():
     while True:
