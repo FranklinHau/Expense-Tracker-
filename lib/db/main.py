@@ -55,7 +55,8 @@ for option in MENU_OPTIONS:
 # function that allows a user to add their expenses 
 def add_expense(user_id): 
     category = input("Enter the category of the expense (e.g, Food, Rent, Entertainment): ")
-    
+    amount = float(input('Enter the amount of the expense: '))
+    date_input = input('Enter the date of the expense format YYYY-MM-DD: ')
 # function that runs the CLI interface 
 def main():
     while True:
