@@ -53,8 +53,9 @@ for option in MENU_OPTIONS:
         option['function'] = login
 
 # function that allows a user to add their expenses 
-
-
+def add_expense(user_id): 
+    category = input("Enter the category of the expense (e.g, Food, Rent, Entertainment): ")
+    
 # function that runs the CLI interface 
 def main():
     while True:
