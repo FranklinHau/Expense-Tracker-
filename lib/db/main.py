@@ -64,7 +64,7 @@ for option in MENU_OPTIONS:
     elif option['label'] == 'Login':
         option['function'] = login
     elif option['label'] == 'Add Expense': 
-        option['function'] = lambda: print('Please login first!')
+        option['function'] = add_expense_logged_in
 
 # function that allows a user to add their expenses 
 def add_expense(user_id): 
@@ -95,6 +95,26 @@ def add_expense(user_id):
     session.add(expense)
     session.commit()
     print('Expense added successfully!')
+
+def add_expense_logged_in():
+    if current_user:
+        add_expense(current_user.id)
+    else:
+        print('Please login first!')
+
+def list_expenses(): 
+    if not current_user: 
+        print('Please login first!')
+        return
+    
+    expenses = session.query(Expense).filter_by(user_id=current_user.id).all()
+
+    if not expenses:
+        print('You have no expenses recorded.')
+        return 
+    print('\nYour expenses:')
+    for expense in expenses: 
+        print(f"Date: {expense.date}, Category: {expense.category}, Amount: ${expense.amount}")
 
 # function that runs the CLI interface 
 def main():
