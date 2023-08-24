@@ -66,8 +66,17 @@ def expenses_this_month():
     # displaying the total expenses made this month
     print(f'Total expenses for this month: ${total or 0}')
 
+# calculating total expenses made for the year 
+def expenses_this_year():
+    today = datetime.today().date()
+    # determining the start of this year
+    start_of_year = today.replace(month=1, day=1)
+    # query for database for the total amount of expenses made from the start of this year to today
+    total = session.query(func.sum(Expense.amount)).filter(Expense.user_id == current_user.id, Expense.date.between(start_of_year, today)).scalar()
+    # displaying the total expenses made this year
+    print(f'Total expenses for this year: ${total or 0}')
 
-
+    
 # functions checks if user is logged in before they can add an expense 
 def add_expense_logged_in():
     #checking if there's a current user set 
