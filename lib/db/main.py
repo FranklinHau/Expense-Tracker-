@@ -114,7 +114,13 @@ def login():
 # function that runs the CLI interface 
 def main():
     while True:
-        # displaying th e menu options to the user 
+        # checking if user is logged in to decide which menu to show 
+        if current_user:
+            current_menu = USER_MENU_OPTIONS
+        else:
+            current_menu = MAIN_MENU_OPTIONS
+
+        # displaying the appropriate menu
         for option in MENU_OPTIONS:
             print(f'{option["id"]}. {option["label"]}')
         # take user's choice as input 
