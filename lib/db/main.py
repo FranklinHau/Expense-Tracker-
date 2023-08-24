@@ -1,5 +1,6 @@
 from models import session, User, Expense
 from utilities import hash_password, check_password
+from datetime import datetime
 
 # Menu options as a list of dicts 
 # each dict has an 'id', 'label', and a 'function
@@ -30,6 +31,9 @@ def register():
     session.add(user)
     # commit the session to persist the user data into the database 
     session.commit()
+    # if registration is successful
+    print('Registration successful!')
+    add_expense(user.id) # adding user.id here since we just created this user 
 
 # Function to handle user login 
 def login():
@@ -45,12 +49,16 @@ def login():
         # if credentials don't match, inform the user 
         print('Invalid credentials.')
 
+        add_expense(user.id) # Adding user.id since the user has just logged in 
+
 # Link functions to their respective options in MENU_OPTIONS
 for option in MENU_OPTIONS:
     if option['label'] == 'Register':
         option['function'] = register 
     elif option['label'] == 'Login':
         option['function'] = login
+    elif option['label'] == 'Add Expense': 
+        option['function'] = lambda: print('Please login first!')
 
 # function that allows a user to add their expenses 
 def add_expense(user_id): 
@@ -59,7 +67,12 @@ def add_expense(user_id):
     date_input = input('Enter the date of the expense format YYYY-MM-DD: ')
     date_obj = datetime.strptime(date_input, '%Y-%m-%d').date()
 
-    
+    # Expense instance 
+    expense = Expense(category=category, amount=amount, date=date_obj, user_id=user_id)
+    session.add(expense)
+    session.commit()
+    print('Expense added successfully!')
+
 # function that runs the CLI interface 
 def main():
     while True:
