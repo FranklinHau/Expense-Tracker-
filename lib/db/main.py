@@ -46,6 +46,17 @@ def expenses_today():
     # displaying the total expenses made today
     print(f'Total expenses for today: ${total or 0}')
 
+# calculating total expenses made this week 
+def expenses_this_week():
+    today = datetime.today().date()
+    # determining the start of the week probably Monday. 
+    start_of_week = today - timedelta(days=today.weekday())
+    # query for the database for the total amount of expenses made from the start of this week to today 
+    total = session.query(func.sum(Expense.amount)).filter(Expense.user_id == current_user.id, Expense.date.between(start_of_week, today)).scalar()
+    # displaying the total expenses made this week
+    print(f'Total expenses for this week: ${total or 0}')
+
+
 # functions checks if user is logged in before they can add an expense 
 def add_expense_logged_in():
     #checking if there's a current user set 
