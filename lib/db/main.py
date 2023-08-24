@@ -74,6 +74,14 @@ def add_expense(user_id):
             break 
         except ValueError:
             print('Please enter a valid number for the amount.')
+    # if user inputs incorrect data format
+    while True:
+        date_input = input('Enter the date of the expense (format YYYY-MM-DD): ')
+        try:
+            date_obj = datetime.strptime(date_input, '%Y-%m-%d').date()
+            break
+        except ValueError:
+            print('Invalid date format. Please use YYYY-MM-DD format.')
      
 
     # Expense instance 
