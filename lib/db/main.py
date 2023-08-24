@@ -1,6 +1,7 @@
 from models import session, User, Expense
 from utilities import hash_password, check_password
 from datetime import datetime
+from sqlalchemy import func
 
 current_user = None # to be use to keep tract of the logged-in user
 
@@ -35,6 +36,15 @@ def add_expense(user_id):
     session.add(expense)
     session.commit()
     print('Expense added successfully!')
+
+# Calculating total expenses made today 
+def expenses_today():
+    # getting today's date 
+    today = datetime.today().date()
+    # query the database for the total amount of expenses made today by the user. 
+    total = session.query(func.sum(Expense.amount)).filter_by(user_id=current_user.id, date=today).scalar()
+    # displaying the total expenses made today
+    print(f'Total expenses for today: ${total or 0}')
 
 # functions checks if user is logged in before they can add an expense 
 def add_expense_logged_in():
