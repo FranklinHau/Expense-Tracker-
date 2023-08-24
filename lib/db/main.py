@@ -2,6 +2,8 @@ from models import session, User, Expense
 from utilities import hash_password, check_password
 from datetime import datetime
 
+current_user = None # to be use to keep tract of the logged-in user
+
 # Menu options as a list of dicts 
 # each dict has an 'id', 'label', and a 'function
 # id = user input, label = description of the option, function = execute for the option
@@ -44,12 +46,16 @@ def login():
     user = session.query(User).filter_by(username=username).first()
     # if user exists and entered password matches stored hashed password, login is successful
     if user and check_password(password, user.password):
+        global current_user
+        current_user = user
         print('Logged in!')
+        add_expense(user.id)
     else:
         # if credentials don't match, inform the user 
         print('Invalid credentials.')
 
         add_expense(user.id) # Adding user.id since the user has just logged in 
+    
 
 # Link functions to their respective options in MENU_OPTIONS
 for option in MENU_OPTIONS:
@@ -74,7 +80,7 @@ def add_expense(user_id):
             break 
         except ValueError:
             print('Please enter a valid number for the amount.')
-    # if user inputs incorrect data format
+    # if user inputs incorrect date format
     while True:
         date_input = input('Enter the date of the expense (format YYYY-MM-DD): ')
         try:
