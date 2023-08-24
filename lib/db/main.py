@@ -106,7 +106,7 @@ def login():
         global current_user
         current_user = user
         print('Logged in!')
-        add_expense(user.id)
+        
     else:
         # if credentials don't match, inform the user 
         print('Invalid credentials.')

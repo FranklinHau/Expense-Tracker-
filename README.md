@@ -58,8 +58,8 @@ Expenses-Management-CLI-Application/
 4. run pipenv install
 5. get to your virtual: 
     * run pipenv shell 
-5. Run the application:
-    * python main.py
+6. Run the application:
+    *$ python lib/db/main.py
 
 ***
 
