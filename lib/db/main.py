@@ -132,12 +132,17 @@ def main():
 # Menu options as a list of dicts 
 # each dict has an 'id', 'label', and a 'function
 # id = user input, label = description of the option, function = execute for the option
-MENU_OPTIONS = [
+MAIN_MENU_OPTIONS = [
     {'id': '1', 'label': 'Register', 'function': register},
     {'id': '2', 'label': 'Login', 'function': login},
-    {'id': '3', 'label': 'Add Expense', 'function': add_expense_logged_in},
-    {'id': '4', 'label': "Exit", 'function': exit},
-    {'id': '5', 'label': "List Expenses", 'function': list_expenses}, 
+    {'id': '3', 'label': 'Exit', 'function': exit}
+]
+
+USER_MENU_OPTIONS = [
+    {'id': '1', 'label': 'Add Expense', 'function': add_expense_logged_in},
+    {'id': '2', 'label': "List Expenses", 'function': list_expenses}, 
+    {'id': '3', 'label': "Exit", 'function': exit}
+    
 ]
 
 # ensuring that the main function is called only if this script is run directly and not imported  
