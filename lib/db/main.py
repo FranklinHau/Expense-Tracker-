@@ -120,14 +120,15 @@ def main():
         else:
             current_menu = MAIN_MENU_OPTIONS
 
-        # displaying the appropriate menu
-        for option in MENU_OPTIONS:
+        # displaying the appropriate menu 
+        for option in current_menu:
             print(f'{option["id"]}. {option["label"]}')
+
         # take user's choice as input 
         choice = input('Enter your choice: ')
 
-        # fetch the selected option from MENU_OPTIONS based on user input 
-        selected_option = next((opt for opt in MENU_OPTIONS if opt['id'] == choice), None)
+        # fetch the selected option from current_menu based on user input 
+        selected_option = next((opt for opt in current_menu if opt['id'] == choice), None)
         # if invalid option is selected and has an associated function, execute it 
         if selected_option and selected_option['function']:
             selected_option['function']()
