@@ -189,7 +189,11 @@ MAIN_MENU_OPTIONS = [
 USER_MENU_OPTIONS = [
     {'id': '1', 'label': 'Add Expense', 'function': add_expense_logged_in},
     {'id': '2', 'label': "List Expenses", 'function': list_expenses}, 
-    {'id': '3', 'label': "Exit", 'function': exit}
+    {'id': '3', 'label': "List Expenses", 'function': expenses_today}, 
+    {'id': '4', 'label': "List Expenses", 'function': expenses_this_week}, 
+    {'id': '5', 'label': "List Expenses", 'function': expenses_this_month},
+    {'id': '6', 'label': "List Expenses", 'function': expenses_this_year},  
+    {'id': '7', 'label': "Exit", 'function': exit}
     
 ]
 
