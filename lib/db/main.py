@@ -7,7 +7,8 @@ from utilities import hash_password, check_password
 MENU_OPTIONS = [
     {'id': '1', 'label': 'Register', 'function': None},
     {'id': '2', 'label': 'Login', 'function': None},
-    {'id': '3', 'label': 'Exit', 'function': exit}
+    {'id': '3', 'label': 'Add Expense', 'function': None},
+    {'id': '4', 'label': "Exit", 'function': exit}
 ]
 
 # Function to handle user registration 
@@ -50,6 +51,8 @@ for option in MENU_OPTIONS:
         option['function'] = register 
     elif option['label'] == 'Login':
         option['function'] = login
+
+# function that allows a user to add their expenses 
 
 
 # function that runs the CLI interface 
