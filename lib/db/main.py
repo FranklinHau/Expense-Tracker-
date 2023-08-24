@@ -41,7 +41,7 @@ def add_expense(user_id):
 def expenses_today():
     # getting today's date 
     today = datetime.today().date()
-    # query the database for the total amount of expenses made today by the user. 
+    # query for total amount of expenses made today by the user. 
     total = session.query(func.sum(Expense.amount)).filter_by(user_id=current_user.id, date=today).scalar()
     # displaying the total expenses made today
     print(f'Total expenses for today: ${total or 0}')
@@ -51,7 +51,7 @@ def expenses_this_week():
     today = datetime.today().date()
     # determining the start of the week probably Monday. 
     start_of_week = today - timedelta(days=today.weekday())
-    # query for the database for the total amount of expenses made from the start of this week to today 
+    # query for the total amount of expenses made from the start of this week to today 
     total = session.query(func.sum(Expense.amount)).filter(Expense.user_id == current_user.id, Expense.date.between(start_of_week, today)).scalar()
     # displaying the total expenses made this week
     print(f'Total expenses for this week: ${total or 0}')
@@ -61,7 +61,7 @@ def expenses_this_month():
     today = datetime.today().date()
     # determine the start of the month 
     start_of_month = today.replace(day=1)
-    # query for database for the total amount of expenses made from the start of this month to today 
+    # query for the total amount of expenses made from the start of this month to today 
     total = session.query(func.sum(Expense.amount)).filter(Expense.user_id, Expense.date.between(start_of_month, today)).scalar()
     # displaying the total expenses made this month
     print(f'Total expenses for this month: ${total or 0}')
@@ -71,7 +71,7 @@ def expenses_this_year():
     today = datetime.today().date()
     # determining the start of this year
     start_of_year = today.replace(month=1, day=1)
-    # query for database for the total amount of expenses made from the start of this year to today
+    # query for the total amount of expenses made from the start of this year to today
     total = session.query(func.sum(Expense.amount)).filter(Expense.user_id == current_user.id, Expense.date.between(start_of_year, today)).scalar()
     # displaying the total expenses made this year
     print(f'Total expenses for this year: ${total or 0}')
@@ -93,7 +93,7 @@ def list_expenses():
         print('Please login first!')
         return
 
-    #Query the database to get all expenses for the current user
+    #Query to get all expenses for the current user
     expenses = session.query(Expense).filter_by(user_id=current_user.id).all()
 
     # if the user don't have expenses, inform the user 
@@ -189,10 +189,10 @@ MAIN_MENU_OPTIONS = [
 USER_MENU_OPTIONS = [
     {'id': '1', 'label': 'Add Expense', 'function': add_expense_logged_in},
     {'id': '2', 'label': "List Expenses", 'function': list_expenses}, 
-    {'id': '3', 'label': "List Expenses", 'function': expenses_today}, 
-    {'id': '4', 'label': "List Expenses", 'function': expenses_this_week}, 
-    {'id': '5', 'label': "List Expenses", 'function': expenses_this_month},
-    {'id': '6', 'label': "List Expenses", 'function': expenses_this_year},  
+    {'id': '3', 'label': "Expenses Today", 'function': expenses_today}, 
+    {'id': '4', 'label': "Expenses This Week", 'function': expenses_this_week}, 
+    {'id': '5', 'label': "Expenses This Month", 'function': expenses_this_month},
+    {'id': '6', 'label': "Expenses This Year", 'function': expenses_this_year},  
     {'id': '7', 'label': "Exit", 'function': exit}
     
 ]
