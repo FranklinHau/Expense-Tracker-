@@ -22,6 +22,7 @@ def register():
     password = input('Enter a password: ')
     # checks if the existing username already exist in the database 
     existing_user = session.query(User).filter_by(username=username).first()
+
     if existing_user:
         # if the username is already taken, inform the user and exit the function  
         print('Username already taken. PLease choose another one. ')
@@ -36,6 +37,7 @@ def register():
     session.commit()
     # if registration is successful
     print('Registration successful!')
+
     add_expense(user.id) # adding user.id here since we just created this user 
 
 # Function to handle user login 
@@ -43,10 +45,13 @@ def login():
     # gather user input for username and password  
     username = input('Enter your username: ')
     password = input('Enter your password: ')
+
     # check if entered username exists in the database
     user = session.query(User).filter_by(username=username).first()
+
     # if user exists and entered password matches stored hashed password, login is successful
     if user and check_password(password, user.password):
+        # setting the currrent user to the user who just logged in 
         global current_user
         current_user = user
         print('Logged in!')
@@ -58,7 +63,7 @@ def login():
         add_expense(user.id) # Adding user.id since the user has just logged in 
     
 
-# Link functions to their respective options in MENU_OPTIONS
+# Links functions to their respective options in MENU_OPTIONS
 for option in MENU_OPTIONS:
     if option['label'] == 'Register':
         option['function'] = register 
@@ -77,19 +82,24 @@ def add_expense(user_id):
     date_obj = datetime.strptime(date_input, '%Y-%m-%d').date()
     
     # if user uses a non-numeric amount
+    # looping until the user provides a valid amount 
     while True: 
-        try: 
+        try: # trying to converting the user input into a float
             amount = float(input('Enter the amount of the expense: '))
             break 
         except ValueError:
+            # if conversion fails, it means the input wasn't a valid number
             print('Please enter a valid number for the amount.')
-    # if user inputs incorrect date format
+
+    # Looping until the user provides a date in the correct format 
     while True:
         date_input = input('Enter the date of the expense (format YYYY-MM-DD): ')
         try:
+            # trying to convert the user input into a date object
             date_obj = datetime.strptime(date_input, '%Y-%m-%d').date()
             break
         except ValueError:
+            # if conversion fails, it means the input wans't a valid date format
             print('Invalid date format. Please use YYYY-MM-DD format.')
      
 
@@ -99,22 +109,30 @@ def add_expense(user_id):
     session.commit()
     print('Expense added successfully!')
 
+# functions checks if user is logged in before calling the add_expense function 
 def add_expense_logged_in():
+    #checking if there's a current user set 
     if current_user:
         add_expense(current_user.id)
     else:
+    # if no user is logged in, informs users to login first 
         print('Please login first!')
 
+# this function list all expenses of the currently logged in user 
 def list_expenses(): 
+    # if no user is logged in, informs the user to login first 
     if not current_user: 
         print('Please login first!')
         return
     
+    # Query the database to get all expenses for the current user 
     expenses = session.query(Expense).filter_by(user_id=current_user.id).all()
 
+    # if the user has no expense, inform the user 
     if not expenses:
         print('You have no expenses recorded.')
         return 
+    # displays all the expenses 
     print('\nYour expenses:')
     for expense in expenses: 
         print(f"Date: {expense.date}, Category: {expense.category}, Amount: ${expense.amount}")
