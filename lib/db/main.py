@@ -184,6 +184,7 @@ def main():
             # inform the user if an invalid option is chosen
             print('Invalid option. Please choose again.')
 
+# function that returns to main menu 
 def return_to_main():
     global current_user
     current_user = None 

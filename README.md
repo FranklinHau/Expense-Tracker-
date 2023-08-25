@@ -66,6 +66,9 @@ Expenses-Management-CLI-Application/
 
 ## Usage
 
+### Website
+https://youtu.be/pf-2rqUJH0I
+
 * Upon launching the application, the user is presented with the main menu with the following options:
 * You have to enter 1, 2, 3
 
