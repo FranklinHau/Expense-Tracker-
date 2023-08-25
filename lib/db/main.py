@@ -23,14 +23,14 @@ def add_expense(user_id):
 
     # Looping until the user provides a date in the correct format 
     while True:
-        date_input = input('Enter the date of the expense (format YYYY-MM-DD): ')
+        date_input = input('Enter the date of the expense (format MM/DD/YYYY): ')
         try:
             # trying to convert the user input into a date object
-            date_obj = datetime.strptime(date_input, '%Y-%m-%d').date()
+            date_obj = datetime.strptime(date_input, '%m/%d/%Y').date()
             break
         except ValueError:
             # if conversion fails, it means the input wans't a valid date format
-            print('Invalid date format. Please use YYYY-MM-DD format.')
+            print('Invalid date format. Please use MM/DD/YYYY format.')
      
 
     # Expense instance 
