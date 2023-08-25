@@ -94,13 +94,13 @@ https://youtu.be/pf-2rqUJH0I
 7. Return to Main Menu   
 
 
-* 1 Add Expense: You can type any kind of expense with the smount and date
+* 1  -Add Expense: You can type any kind of expense with the amount and date
 
-* 2 List Expenses: List all the expenses that you have enter 
+* 2  -List Expenses: List all the expenses that you have enter 
 
-* 3 to 6. : show all the expenses for today, week, month, and year. 
+* 3 to 6  -shows all the expenses for today, week, month, and year. 
 
-* 7 Takes you back to Main Menu 
+* 7  -Takes you back to Main Menu 
 
 ***
 
