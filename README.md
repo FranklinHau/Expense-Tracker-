@@ -32,6 +32,7 @@ Expenses-Management-CLI-Application/
 * Security Measures
 * Future Enhancements
 * Contribution
+* Resources 
 
 ## Features 
 
@@ -66,10 +67,23 @@ Expenses-Management-CLI-Application/
 ## Usage
 
 * Upon launching the application, the user is presented with the main menu with the following options:
+* You have to enter 1, 2, 3
 
 1. Register
 2. Login
 3. Exit
+
+* After registration or login to your account, the user is presented with the user menu:
+* You have to enter 1, 2, 3, 4, 5, 6, 7
+
+1. Add Expense 
+2. List Expenses 
+3. Expenses Today 
+4. Expenses This Week 
+5. Expenses This Month 
+6. Expenses This Year 
+7. Exit  
+
 
 * Register: Users can choose a unique username and password to register.
 

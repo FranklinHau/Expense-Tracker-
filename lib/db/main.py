@@ -1,7 +1,9 @@
 from models import session, User, Expense
 from utilities import hash_password, check_password
 from datetime import datetime
+from datetime import datetime, timedelta
 from sqlalchemy import func
+from sqlalchemy import and_
 
 current_user = None # to be use to keep tract of the logged-in user
 
@@ -62,7 +64,7 @@ def expenses_this_month():
     # determine the start of the month 
     start_of_month = today.replace(day=1)
     # query for the total amount of expenses made from the start of this month to today 
-    total = session.query(func.sum(Expense.amount)).filter(Expense.user_id, Expense.date.between(start_of_month, today)).scalar()
+    total = session.query(func.sum(Expense.amount)).filter(and_(Expense.user_id == current_user.id, Expense.date.between(start_of_month, today))).scalar()
     # displaying the total expenses made this month
     print(f'Total expenses for this month: ${total or 0}')
 
@@ -130,7 +132,12 @@ def register():
     # if registration is successful
     print('Registration successful!')
 
-    add_expense(user.id) # adding user.id here since we just created this user 
+    # setting the current user to the user who just registered 
+    global current_user
+    current_user = user 
+
+    # displaying the USER_MENU_OPTIONS by calling the main function 
+    main()
 
 # Function to handle user login 
 def login():
