@@ -76,6 +76,12 @@ https://youtu.be/pf-2rqUJH0I
 2. Login
 3. Exit
 
+* Register: Users can choose a unique username and password to register.
+
+* Login: Registered users can login using their username and password.
+
+* Exit: Close the application.
+
 * After registration or login to your account, the user is presented with the user menu:
 * You have to enter 1, 2, 3, 4, 5, 6, 7
 
@@ -85,14 +91,16 @@ https://youtu.be/pf-2rqUJH0I
 4. Expenses This Week 
 5. Expenses This Month 
 6. Expenses This Year 
-7. Exit  
+7. Return to Main Menu   
 
 
-* Register: Users can choose a unique username and password to register.
+* 1. Add Expense: You can type any kind of expense with the smount and date
 
-* Login: Registered users can login using their username and password.
+* 2. List Expenses: List all the expenses that you have enter 
 
-* Exit: Close the application.
+* 3. to 6. : show all the expenses for today, week, month, and year. 
+
+* 7. Takes you back to Main Menu 
 
 ***
 
