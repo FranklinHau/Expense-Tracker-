@@ -3,7 +3,7 @@ from utilities import hash_password, check_password
 from datetime import datetime
 from datetime import datetime, timedelta
 from sqlalchemy import func
-from sqlalchemy import and_
+from sqlalchemy import and_ # compose multiple conditions in a SQLAlchemy filter
 
 current_user = None # to be use to keep tract of the logged-in user
 
@@ -184,6 +184,13 @@ def main():
             # inform the user if an invalid option is chosen
             print('Invalid option. Please choose again.')
 
+def return_to_main():
+    global current_user
+    current_user = None 
+    print('Returning to main menu')
+    main()
+
+
 # Menu options as a list of dicts 
 # each dict has an 'id', 'label', and a 'function
 # id = user input, label = description of the option, function = execute for the option
@@ -200,7 +207,7 @@ USER_MENU_OPTIONS = [
     {'id': '4', 'label': "Expenses This Week", 'function': expenses_this_week}, 
     {'id': '5', 'label': "Expenses This Month", 'function': expenses_this_month},
     {'id': '6', 'label': "Expenses This Year", 'function': expenses_this_year},  
-    {'id': '7', 'label': "Exit", 'function': exit}
+    {'id': '7', 'label': "Return to Main Menu", 'function': return_to_main}
     
 ]
 
